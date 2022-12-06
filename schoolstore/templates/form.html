@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTER</title>
+</head>
+<body>
+<form action="result/" method="GET">
+    {% csrf_token %}
+  <table align="center"; bgcolor="LightBlue"; border="20px">
+    <tr>
+      <td>
+        <label>NAME </label></td>
+      <td><input type="text" name="username" placeholder="Enter your name" required /></td> </tr>
+      <tr>
+      <td>
+        <label>DOB</label></td>
+      <td><input type="date" class="form-control" name="date" placeholder="Enter your date"></td> </tr>
+      <td>
+        <label>AGE</label></td>
+      <td><input type="number" class="form-control" name="age" placeholder="Enter your age" required /></td> </tr>
+      <tr><td>
+      <label>GENDER </label></td>
+      <td>
+    <input type="radio" id="male" value="male" name="gender"><label for="male">MALE</label><br>
+    <input type="radio" id="female" value="female" name="gender"><label for="female">FEMALE</label><br>
+    <input type="radio" id="other" value="other" name="gender"><label>OTHER</label><br>
+    <input type="radio" id="aa" value="NOT DISCLOSED" name="gender"><label>I PREFER NOT TO SAY</label><br>
+      </td>
+    </tr>
+
+      <tr>
+        <td>
+        <label>MAIL ID </label></td>
+        <td><input type="email" name="mail" placeholder="enter your mail ID"></td> </tr>
+    <tr><td>
+      <label>PHONE NUMBER </label></td>
+      <td><input type="number" name="phone" placeholder="enter your NUMBER" required /></td>
+    </tr>
+
+<tr>
+      <td>
+        <label>ADDRESS</label></td>
+      <td><input type="text" name="address" placeholder="Enter your full address"></td> </tr>
+
+
+
+
+
+
+
+
+
+
+<tr align="center">
+  <td colspan="2";>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script language="javascript" type="text/javascript">
+    function dynamicdropdown(listindex)
+    {
+        switch (listindex)
+        {
+        case "manual" :
+            document.getElementById("status").options[0]=new Option("Select course","");
+            document.getElementById("status").options[1]=new Option("JAVA");
+            document.getElementById("status").options[2]=new Option("C++");
+	    document.getElementById("status").options[3]=new Option("HTML & CSS");
+            break;
+        case "online" :
+            document.getElementById("status").options[0]=new Option("Select course","");
+            document.getElementById("status").options[1]=new Option("Social");
+            document.getElementById("status").options[2]=new Option("History");
+            document.getElementById("status").options[3]=new Option("Political Science");
+            break;
+	case "vhse" :
+            document.getElementById("status").options[0]=new Option("Select course","");
+            document.getElementById("status").options[1]=new Option("Computer");
+            document.getElementById("status").options[2]=new Option("Basic Electronics");
+	    document.getElementById("status").options[3]=new Option("Basic Mechanics");
+            break;
+	case "pcm" :
+            document.getElementById("status").options[0]=new Option("Select course","");
+            document.getElementById("status").options[1]=new Option("Physics");
+            document.getElementById("status").options[2]=new Option("Chemistry");
+	    document.getElementById("status").options[3]=new Option("Maths");
+            break;
+	case "commerce" :
+            document.getElementById("status").options[0]=new Option("Select course","");
+            document.getElementById("status").options[1]=new Option("Accountancy");
+            document.getElementById("status").options[2]=new Option("Economics");
+	    document.getElementById("status").options[3]=new Option("Business");
+            break;
+        }
+        return true;
+    }
+    </script>
+    </head>
+    <title>Dynamic Drop Down List</title>
+
+    <div class="category_div" id="category_div">Department:
+        <select id="source" name="source" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+        <option value="">Select your department</option>
+        <option value="manual">Computer Science</option>
+        <option value="online">Humanities</option>
+	<option value="vhse">VHSE</option>
+	<option value="pcm">PC-M</option>
+	<option value="commerce">Commerce</option>
+        </select>
+
+
+    </div>
+    <div class="sub_category_div" id="sub_category_div">Courses:
+        <script type="text/javascript" language="JavaScript">
+        document.write('<select name="status" id="status"><option value="">Select course</option></select>')
+        </script>
+        <noscript>
+        <select id="status" name="status">
+            <option value="open">OPEN</option>
+            <option value="delivered">DELIVERED</option>
+        </select>
+        </noscript>
+    </div>
+
+    </td></tr>
+
+<tr><td>
+<label for="dog-names">PURPOSE:</label></td>
+  <td>
+<select name="dog-names" id="dog-names">
+    <option value="Enquiry">Enquiry</option>
+  <option value="Placeorder">Place Order</option>
+  <option value="Return">Return</option>
+  <option value="Replacement">Replacement</option>
+</select>
+  </td></tr>
+
+    <tr align="center">
+  <td colspan="2";>
+
+
+    <div class="wrapper">
+        <div class="header">
+            <h3>Materials Provided</h3>
+        </div>
+        <div id="itemForm">
+            <div class="item">
+                <label for="green">PEN</label>
+                <input id="green" type="checkbox" value="PEN">
+            </div>
+            <div class="item">
+                <label for="pink">EXAM PAPER</label>
+                <input id="pink" type="checkbox" value="EXAM PAPER">
+            </div>
+            <div class="item">
+                <label for="yellow">LAB MANUAL</label>
+                <input id="yellow" type="checkbox" value="LAB MANUAL">
+            </div>
+            <div class="item">
+                <label for="black">ID CARD</label>
+                <input id="black" type="checkbox" value="ID CARD">
+            </div>
+
+
+        </div>
+    </div>
+<h1> <span id="name1"></span></h1>
+    <p class="result"></p>
+
+    <script>
+        var itemForm = document.getElementById('itemForm'); // getting the parent container of all the checkbox inputs
+        var checkBoxes = itemForm.querySelectorAll('input[type="checkbox"]'); // get all the check box
+        document.getElementById('submit').addEventListener('click', getData); //add a click event to the save button
+
+        let result = [];
+
+        function getData() { // this function will get called when the save button is clicked
+            result = [];
+            checkBoxes.forEach(item => { // loop all the checkbox item
+                if (item.checked) {  //if the check box is checked
+                    let data = {    // create an object
+                        item: item.value,
+
+                    }
+                    result.push(data); //stored the objects to result array
+		let name1 = JSON.stringify(result);
+    document.getElementById("name1").innerHTML = name1;
+                }
+            })
+            document.querySelector('.result').textContent = JSON.stringify(result); // display result
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+</tr>
+
+
+
+
+
+
+
+
+
+<tr align="center">
+  <td colspan="2";>
+    <input type="submit"></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+ </table>
+
+
+
+
+
+
+
+
+</form>
+
+</body>
+</html>
